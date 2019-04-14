@@ -50,10 +50,10 @@ int main(void)
 			if (exe(argv) == -1)
 				perror("hsh: ");
 		}
-		else
+		else if (argv[0])
 		{
 			if (catch_binfunc(buffer, argv) == 0)
-				if (search_path(argv) == 0)
+				if (search_path(argv) == 0 && *argv[0] != '\n')
 					cmd_not_found(argv[0]);
 		}
 		free_argv(argv);

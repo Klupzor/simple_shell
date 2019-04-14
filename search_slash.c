@@ -10,6 +10,8 @@ int search_slash(char *input)
 {
 	int find;
 
+	if (!input)
+		return (0);
 	for (find = 0; input[find] != '\0'; find++)
 	{
 		if (input[find] == '/')
