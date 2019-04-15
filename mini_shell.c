@@ -16,20 +16,19 @@ void handle_sigint(int sig_number)
 
 /**
  *main - entry point.
- *
- *
+ *@argc: number of arguments.
+ *@arg: are the arguments.
  *Return: 0.
 */
 
 int main(int argc, char **arg)
 {
-	char *buffer, **argv;
+	char *buffer, **argv, *erdir = arg[0];
 	size_t bufsize = 32;
 	ssize_t characters = 0;
 	int line = 0;
-
 	(void) argc;
-	char *erdir = arg[0];
+
 	miniPrint("Shell start! *\\(^-^)/* \n");
 	while (characters != -1)
 	{
@@ -42,7 +41,6 @@ int main(int argc, char **arg)
 		}
 		signal(SIGINT, handle_sigint);
 		miniPrint("(^.^)/$ ");
-
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == -1)
 		{

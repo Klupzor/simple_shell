@@ -2,7 +2,9 @@
 
 /**
  * cmd_not_found - print the error.
- *@cmd: is the command to be print
+ *@cmd: is the command to be print.
+ *@line: is the line were fails.
+ *@erdir: direction to the error.
  *Return: nothing.
  */
 

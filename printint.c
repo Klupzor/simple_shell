@@ -13,12 +13,12 @@ int  printint(int num)
 
 	if (num > 0)
 	{
-		res  = num % 10;
+		res = num % 10;
 		num = num / 10;
 		printint(num);
 		ch = (res + 48);
-		if (write(STDOUT_FILENO, &ch , 1) == -1)
-                	perror("Error on miniPrint ");
+		if (write(STDOUT_FILENO, &ch, 1) == -1)
+			perror("Error on miniPrint ");
 	}
 	return (res);
 }
