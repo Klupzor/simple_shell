@@ -6,8 +6,16 @@
  *Return: nothing.
  */
 
-void cmd_not_found(char *cmd)
+void cmd_not_found(char *cmd, int line, char *erdir)
 {
+	if (erdir)
+	{
+		miniPrint(erdir);
+		miniPrint(": ");
+	}
+
+	printint(line);
+	miniPrint(": ");
 	miniPrint(cmd);
-	miniPrint(": command not found\n");
+	miniPrint(": not found\n");
 }

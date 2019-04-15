@@ -21,15 +21,19 @@ void handle_sigint(int sig_number)
  *Return: 0.
 */
 
-int main(void)
+int main(int argc, char **arg)
 {
 	char *buffer, **argv;
 	size_t bufsize = 32;
 	ssize_t characters = 0;
+	int line = 0;
 
+	(void) argc;
+	char *erdir = arg[0];
 	miniPrint("Shell start! *\\(^-^)/* \n");
 	while (characters != -1)
 	{
+		line++;
 		buffer = (char *)malloc(bufsize * sizeof(char));
 		if (buffer == NULL)
 		{
@@ -38,6 +42,7 @@ int main(void)
 		}
 		signal(SIGINT, handle_sigint);
 		miniPrint("(^.^)/$ ");
+
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == -1)
 		{
@@ -54,7 +59,7 @@ int main(void)
 		{
 			if (catch_binfunc(buffer, argv) == 0)
 				if (search_path(argv) == 0 && *argv[0] != '\n')
-					cmd_not_found(argv[0]);
+					cmd_not_found(argv[0], line, erdir);
 		}
 		free_argv(argv);
 		free(buffer);
