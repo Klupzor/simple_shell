@@ -7,14 +7,10 @@
  *Return: nothing.
 */
 
-void handle_exit(char **argv, char *buffer)
+void handle_exit(char **argv, char *buffer, int status)
 {
-	int tmp = 0;
-
-	if (argv[1])
-		tmp = _atoi(argv[1]);
 	free_argv(argv);
 	free(buffer);
-	exit(tmp);
+	exit(status);
 }
 

@@ -8,11 +8,11 @@
  *Return: 0.
 */
 
-int catch_binfunc(char *buffer, char **argv)
+int catch_binfunc(char *buffer, char **argv, int status)
 {
 	if (_strcmp(buffer, "exit") == 0)
 	{
-		handle_exit(argv, buffer);
+		handle_exit(argv, buffer, status);
 		return (1);
 	}
 	else if (_strcmp(buffer, "env") == 0)
