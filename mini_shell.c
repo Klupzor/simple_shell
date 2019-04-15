@@ -29,7 +29,6 @@ int main(int argc, char **arg)
 	int line = 0;
 	(void) argc;
 
-	miniPrint("Shell start! *\\(^-^)/* \n");
 	while (characters != -1)
 	{
 		line++;
@@ -40,7 +39,6 @@ int main(int argc, char **arg)
 			exit(1);
 		}
 		signal(SIGINT, handle_sigint);
-		miniPrint("(^.^)/$ ");
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == -1)
 		{
