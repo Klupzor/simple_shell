@@ -34,5 +34,6 @@ void cmd_not_found(char *cmd, int line, char *errdir);
 void penv();
 int _atoi(char *s);
 int  printint(int num);
+int printError(char *str);
 
 #endif

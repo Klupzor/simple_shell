@@ -17,7 +17,7 @@ int  printint(int num)
 		num = num / 10;
 		printint(num);
 		ch = (res + 48);
-		if (write(STDOUT_FILENO, &ch, 1) == -1)
+		if (write(STDERR_FILENO, &ch, 1) == -1)
 			perror("Error on miniPrint ");
 	}
 	return (res);

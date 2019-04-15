@@ -12,12 +12,12 @@ void cmd_not_found(char *cmd, int line, char *erdir)
 {
 	if (erdir)
 	{
-		miniPrint(erdir);
-		miniPrint(": ");
+		printError(erdir);
+		printError(": ");
 	}
 
 	printint(line);
-	miniPrint(": ");
-	miniPrint(cmd);
-	miniPrint(": not found\n");
+	printError(": ");
+	printError(cmd);
+	printError(": not found\n");
 }
