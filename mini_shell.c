@@ -26,9 +26,9 @@ int main(int argc, char **arg)
 	char *buffer, **argv, *erdir = arg[0];
 	size_t bufsize = 32;
 	ssize_t characters = 0;
-	int line = 0;
+	int line = 0, status = 0;
 	(void) argc;
-
+	status = 0;
 	while (characters != -1)
 	{
 		line++;
@@ -55,10 +55,10 @@ int main(int argc, char **arg)
 		{
 			if (catch_binfunc(buffer, argv) == 0)
 				if (search_path(argv) == 0 && *argv[0] != '\n')
-					cmd_not_found(argv[0], line, erdir);
+					status = cmd_not_found(argv[0], line, erdir);
 		}
 		free_argv(argv);
 		free(buffer);
 	}
-	return (0);
+	return (status);
 }

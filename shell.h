@@ -30,7 +30,7 @@ char **add_new_str(char **array, char *str);
 char **create_container(void);
 void mod_command(char *path, char **command);
 int miniPrint(char *str);
-void cmd_not_found(char *cmd, int line, char *errdir);
+int cmd_not_found(char *cmd, int line, char *errdir);
 void penv();
 int _atoi(char *s);
 int  printint(int num);

@@ -8,16 +8,34 @@
  *Return: nothing.
  */
 
-void cmd_not_found(char *cmd, int line, char *erdir)
+int cmd_not_found(char *cmd, int line, char *erdir)
 {
-	if (erdir)
-	{
-		printError(erdir);
-		printError(": ");
-	}
+        pid_t child_pid;
+	int status;
+        child_pid = fork();
 
-	printint(line);
-	printError(": ");
-	printError(cmd);
-	printError(": not found\n");
+        if (child_pid == -1)
+        {
+                perror("no child on cmd_not_found: ");
+        }
+        if (child_pid == 0)
+        {
+		if (erdir)
+		{
+			printError(erdir);
+			printError(": ");
+		}
+
+		printint(line);
+		printError(": ");
+		printError(cmd);
+		printError(": not found\n");
+                exit(127);
+        }
+        else
+        {
+                wait(&status);
+		status = WEXITSTATUS(status);
+        }
+	return (status);
 }
