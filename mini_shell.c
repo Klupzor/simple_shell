@@ -10,7 +10,7 @@
 void handle_sigint(int sig_number)
 {
 	(void) sig_number;
-	miniPrint("\n(^.^)/$ ");
+	miniPrint("\n");
 	fflush(stdout);
 }
 
