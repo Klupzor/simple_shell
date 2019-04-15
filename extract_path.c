@@ -11,7 +11,7 @@ char *extract_path(char *var)
 	int i, j = 0;
 	char *copy;
 
-	for (i = 0; *environ[i]; i++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
 		while (environ[i][j])
 		{
@@ -26,6 +26,6 @@ char *extract_path(char *var)
 				break;
 		}
 	}
-	return (0);
+	return (NULL);
 }
 
