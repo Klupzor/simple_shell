@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *miniPrint - print the string.
+ *printError - print the error in STDERR.
  *@str: the string to print.
  *Return: success 0, fail -1.
  */
