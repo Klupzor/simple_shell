@@ -4,9 +4,9 @@
  *catch_binfunc - catch path.
  *@buffer: is the space to be fillet.
  *@argv: are the arguments to find path.
- *
+ *@status: is the status of a file.
  *Return: 0.
-*/
+ */
 
 int catch_binfunc(char *buffer, char **argv, int status)
 {
