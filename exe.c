@@ -8,6 +8,7 @@
 
 int exe(char **argv)
 {
+	int status;
 	pid_t child_pid;
 
 	child_pid = fork();
@@ -19,16 +20,18 @@ int exe(char **argv)
 	}
 	if (child_pid == 0)
 	{
-		if (execve(argv[0], argv, NULL) == -1)
+		status = execve(argv[0], argv, NULL);
+		if (status  == -1)
 		{
 			perror("exe Error");
-			exit(123);
+			exit(2);
 		}
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
+		status = WEXITSTATUS(status);
 	}
-	return (0);
+	return (status);
 }
 

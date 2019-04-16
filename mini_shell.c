@@ -48,8 +48,7 @@ int main(int argc, char **arg)
 		argv = split(buffer);
 		if (search_slash(argv[0]) == 1)
 		{
-			if (exe(argv) == -1)
-				perror("hsh: ");
+			status = exe(argv);
 		}
 		else if (argv[0])
 		{
